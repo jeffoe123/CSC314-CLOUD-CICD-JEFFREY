@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>Payment Form</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="payy.css" rel="stylesheet">
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ 
+ 
+ body {
+ font-family: Arial, sans-serif;
+ font-size: 16px;
+ line-height: 1.5; 
+ }
+
+ header {
+ background-color: #333;
+ color: #fff;
+ padding: 1rem;
+ text-align: center;
+ }
+
+ main {
+    padding: 1rem;
+    
+ }
+
+ form { 
+ max-width: 600px;
+ margin: 0 auto;
+ padding: 1rem;
+ background-color: #f5f5f5;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+
+ label {
+ display: block;
+ margin-bottom: 0.5rem; 
+ }
+
+ input[type="text"], input[type="email"], input[type="number"], select {
+ display: block;
+ width: 100%;
+ padding: 0.5rem;
+ margin-bottom: 1rem;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+
+ input[type="submit"] {
+ background-color: #333;
+ color: #fff;
+ padding: 0.5rem;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ }
+
+ input[type="submit"]:hover {
+ background-color: rgb(38, 199, 38);
+ }
+
+ .expiration-date {
+ display: flex;
+ justify-content: space-between;
+ }
+
+ .hidden {
+ display: none;
+ }
+
+ .popup{
+   height: 30vh;
+   width: 30vw;
+   overflow: none;
+   display: none;
+margin: auto;
+   padding: 8px;
+   background:white;
+   margin-top: 20vh;
+   transition: all 0.2s ease;
+   text-align: center;
+
+ }
+
+ .popup .material-icons{
+   color: green;
+   font-size: 80px;
+ }
+ 
+ .close-btn {
+ background-color: #ccc;
+ color: #333;
+ padding: 0.5rem;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ margin-top: 1rem;
+ }
+ </style>
+ </head>
+ <body>
+ <header>
+ <h1>Payment Form</h1>
+ </header>
+ <main id="main">
+
+ <form id="form">
+ <label for="cardholder-name">Cardholder Name:</label>
+ <input type="text" id="cardholder-name" name="cardholder-name"
+ placeholder="Enter cardholder name" required>
+ <label for="card-number">Card Number:</label>
+ <input type="number" id="card-number" name="card-number" min="0"
+ placeholder="Enter card number" required>
+ <label for="cvv">CVV:</label>
+ <input type="number" id="cvv" name="cvv" min="0" max="999"
+ placeholder="Enter CVV" required>
+ <label for="expiration-date">Expiration Date:</label>
+ <div class="expiration-date">
+ <select name="month" id="month" required>
+ <option value="" disabled selected hidden>Month</option>
+ <option value="01">January</option>
+ <option value="02">February</option>
+ <option value="03">March</option>
+ <option value="04">April</option>
+ <option value="05">May</option>
+ <option value="06">June</option>
+ <option value="07">July</option>
+ <option value="08">August</option>
+ <option value="09">September</option>
+ <option value="10">October</option>
+ <option value="11">November</option>
+ <option value="12">December</option>
+ </select>
+ <select name="year" id="year" required>
+ <option value="" disabled selected hidden>Year</option>
+ <option value="2021">2021</option>
+ <option value="2022">2022</option>
+ <option value="2023">2023</option>
+ <option value="2024">2024</option>
+ <option value="2025">2025</option>
+ <option value="2026">2026</option>
+ <option value="2027">2027</option>
+ <option value="2028">2028</option>
+ <option value="2029">2029</option>
+ <option value="2030">2030</option>
+ </select>
+ </div>
+ <input type="submit" value="Submit">
+ <button class="close-btn">Close</button></a>
+ </form>
+ </main>
+ <div id="popup" class="popup">
+   <i>   <span class="material-icons">check_circle</span></i>
+ 
+   <p>Your transaction has been completed</p>
+   <br>
+   <p>Thanks for trusting us</p>
+ </div>
+ 
+ <div class="try"></div>
+ <footer>
+ <p>&copy; 2021 Payment Gateway</p>
+ </footer>
+ <script>
+   var form = document.getElementById('form')
+
+   form.addEventListener('submit', function(event){
+      event.preventDefault() // prevent form from autosubmitting
+      var user = document.getElementById('surname').value
+      var elex = document.getElementById('popup')
+      var main = document.getElementById('main')
+      
+      elex.style.display="block"
+      main.style.display ="none"
+   })
+ </script>
+ </body>
+ </html>
